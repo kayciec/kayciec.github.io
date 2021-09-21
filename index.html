@@ -1,18 +1,133 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Title</title>
-    <!-- Load CSS files -->
-    <link rel="stylesheet" type="text/css" href="index.css">
-    
-    <!-- Load JavaScript files -->
-    <script src="jquery.min.js"></script>
-    <script src="index.js"></script>
-  </head>
-  
-  <body>
-    <div id='board'>
-      <div id='gameItem'></div>
-    </div>
-  </body>
+
+<head>
+  <style>
+    body {
+      background: rgb(161, 146, 161);
+      color: rgb(45, 45, 45);
+      padding: 10px;
+      font-family: sans-serif;
+    }
+
+    #all-contents {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* navigation menu */
+    nav {
+      background: rgb(166, 173, 168);
+      margin: 0 auto;
+      margin-bottom: 20px;
+      display: flex;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      display: flex;
+      align-items: center;
+      color: white;
+      flex: 1;
+      margin: 0;
+    }
+
+    #nav-ul {
+      list-style-image: none;
+    }
+
+    .nav-li {
+      display: inline-block;
+      padding: 0 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* main container area beneath menu */
+    main {
+      background: rgb(245, 238, 219);
+      display: flex;
+      border-radius: 10px;
+    }
+
+    .sidebar {
+      margin-right: 25px;
+      padding: 10px;
+    }
+
+    .sidebar-img {
+      width: 200px;
+    }
+
+    .content {
+      flex: 1;
+      padding: 15px;
+    }
+
+    #interests {
+      border: 4px silver ridge;
+      padding: 8px;
+    }
+
+    h2,
+
+    h3 {
+      margin: 0px;
+
+    }
+
+    img {
+        border: 3px solid #555;
+      }
+  </style>
+
+  <title>Kaycie's Website</title>
+</head>
+
+<body>
+  <!-- All content goes here -->
+  <div id="all-contents">
+    <nav>
+      <h1>Kaycie's Glorious Website</h1>
+      <ul id="nav-ul">
+        <li class="nav-li">
+          <a href="index.html"> Home </a>
+        </li>
+        <li class="nav-li">
+          <a href="portfolio.html"> Portfolio </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Sidebar section -->
+      <div class="sidebar">
+        <img class="sidebar-img"
+          src="https://github.com/OperationSpark/first-website-hs-beta/blob/master/img/hallebot.png?raw=true">
+      </div>
+
+
+      <!-- Content section -->
+      <div class="content">
+        <h2> Kaycie </h2>
+        <p> Student at Arden Cahill Academy</p>
+        <!-- Interests section -->
+        <div id=interests>
+          <h3>Interests</h3>
+          <ul>
+            <li>Reading</li>
+            <li>Gardening</li>
+            <li>Travelling</li>
+          </ul>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+
 </html>
