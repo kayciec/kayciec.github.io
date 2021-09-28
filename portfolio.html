@@ -24,11 +24,11 @@
         /* navigation menu */
         nav {
             background: rgb(90, 151, 107);
-            margin: 0 auto;
+            margin: 10px;
             display: flex;
             padding: 10px;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
+            border-radius: 30px;
+
         }
 
         h1 {
@@ -56,8 +56,10 @@
         main {
             background: rgb(245, 238, 219);
             display: flex;
-            border-bottom-left-radius:30px ;
-            border-bottom-right-radius: 30px;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 10px;
+
         }
 
         .content {
@@ -67,7 +69,7 @@
 
         /* portfolio styles */
         .content h1 {
-            color: black;
+            color: rgb(0, 0, 0);
         }
 
         #portfolio {
@@ -80,6 +82,7 @@
             padding: 10px;
             border-radius: 10px;
             margin-bottom: 10px;
+            border: 3px silver ridge;
         }
 
         #portfolio li:hover {
@@ -89,6 +92,10 @@
         #portfolio a {
             text-decoration: none;
             color: #454545;
+        }
+
+        a:hover {
+            border: 1px solid rgb(79, 138, 99);
         }
     </style>
 
@@ -107,6 +114,7 @@
                 </li>
             </ul>
         </nav>
+
         <main>
             <div class="content">
                 <h1>Portfolio</h1>
