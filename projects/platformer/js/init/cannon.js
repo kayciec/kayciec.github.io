@@ -27,10 +27,10 @@
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
         
-        createCannon("left", 170,900);
-        createCannon("left", 300,900);
-        createCannon("left", 440,900);
-        createCannon("left", 570,900);
+        createCannon("left", 170,2000);
+        createCannon("left", 300,2000);
+        createCannon("left", 440,2000);
+        createCannon("left", 570,2000);
        // createCannon("top",380);
         createCannon("top",550);
       //  createCannon("top",650,900);
