@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Taco Shop</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-image:url("https://i.pinimg.com/originals/d3/5c/69/d35c6935fb7134b4d2d5b33678977e93.png");
+        }
+        #menu {
+            background-color: #72b990;
+        }
+        #menu,
+        #take-order {
+            display: flex;
+            flex-direction: row;
+            color: rgb(14, 14, 15);
+        }
+
+        #take-order>p {
+            padding-right: 10px;
+        }
+
+        .menu-item {
+            border: 3px solid gray;
+        }
+
+        .menu-item>h4, 
+        .menu-item>img {
+            padding: 10px;
+            padding-bottom: 5px;
+            color: rgb(0, 0, 0);
+        }
+
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all-contents">
+        <nav>
+            <h1>Taco Shop</h1>
+            <div id="take-order">
+                <p>When you're ready to place your order, click here: </p>
+                <button>Place Order</button>
+            </div>
+        </nav>
+        <main>
+            <h3>Menu</h3>
+            <div id="menu">
+                <div id="three-tacos" class="menu-item">
+                    <h4> #1 - Three Tacos</h4>
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG-phbs_RqH7HoN_2XLKiTXd0zTOeMGLncug&usqp=CAU">
+                    <h4>6.99</h4>
+                </div>
+                <div id="five-tacos" class="menu-item">
+                    <h4>#2 - Five Tacos</h4>
+                    <img src="https://i2.wp.com/thesuburbansoapbox.com/wp-content/uploads/2021/02/Birria-Tacos-8.jpg">
+                    <h4>9.99</h4>
+                </div>
+                <div id="quesadillas" class="menu-item">
+                    <h4>#3 - Two Chicken Quesadillas</h4>
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-oVERlBolVgqVG4N6ieEYZGRlC76jpDR8hA&usqp=CAU">
+                    <h4>6.99</h4>
+                </div>
+                <div id="vegan-tacos" class="menu-item">
+                    <h4>#4 - Three Vegan Tacos</h4>
+                    <img
+                        src="https://www.hotforfoodblog.com/wp-content/uploads/2015/04/vegantacos_hotforfoodblog_filtered1-scaled.jpg">
+                    <h4>99.99</h4>
+                </div>
+                <div id="burrito" class="menu-item">
+                    <h4>#5 - Burrito</h4>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Burrito.JPG">
+                    <h4>7.99</h4>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        $('button').on('click', order);
+        function order() {
+       var total = 0
+       var orderNumber = prompt('What combo number would you like to order?'); // NOTE: the value will be stored as a string
+            var orderTwo = prompt('Anything else?') ;
+if (orderNumber === '1') {
+    total += 6.99;
+} else if (orderNumber === '2') {
+    total += 9.99;
+} else if (orderNumber === '3') {
+    total+= 6.99;
+} else if (orderNumber === '4') {
+    total+= 99.99;   
+    alert('gross')
+} else if (orderNumber === '5') {
+    total+= 7.99;
+}
+else {
+    alert('Sorry, you entered an incorrect combo number'); // Let's the user know that they incorrectly entered information
+}
+ 
+if (orderTwo === '1') {
+    total += 6.99;
+} else if (orderTwo === '2') {
+    total += 9.99;
+} else if (orderTwo === '3') {
+    total+= 6.99;
+} else if (orderTwo === '4') {
+    total+= 99.99;   
+    alert('gross')
+} else if (orderTwo === '5') {
+    total+= 7.99;
+}
+else {
+    alert('Sorry, you entered an incorrect combo number');
+}
+ alert('Your total is ' + total +'.')
+}
+    </script>
+</body>
+
+</html>
