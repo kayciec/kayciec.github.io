@@ -23,7 +23,7 @@ var init = function (window) {
         var circle;
         var circles = [];
         var balls = prompt('how many circles?')
-        var fast = prompt('speed?' (1-'∞ <- dont actually put in infinite sign'))
+        var fast = prompt('speed? (1-∞ <-- dont actually put in infinite sign)')
         var color = prompt('color theme?')
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {
