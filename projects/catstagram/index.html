@@ -13,7 +13,11 @@
 
     <style>
         body {
-            background-color: rgb(197, 236, 245);
+            background-image: url(https://i.pinimg.com/564x/cf/59/ff/cf59ff69c562be21b6ff00e5199dbd97.jpg);
+            background-size: auto;
+            color: white;
+            font-size: 25px;
+
         }
 
         .brand-font {
@@ -23,25 +27,36 @@
 
         #b {
             margin-left: 525px;
-            color: rgb(255, 107, 107);
+            color: rgb(255, 255, 255);
         }
 
         #a {
-            color: rgb(240, 109, 109);
+            color: rgb(255, 255, 255);
             margin-left: 400px;
         }
 
         img {
+            width: 180px;
+            height: 180px;
+            border-width: 15px;
+            border-color: rgb(156, 156, 156);
+            border-style:double;
+            border-radius: 100px;
+        }
+      
+        #images {
             width: 500px;
             height: 440px;
-            border-width: 10px;
-            border-color: rgb(186, 151, 251);
-            border-style: double;
+            border-width: 3px;
+            border-color: rgb(156, 156, 156);
+            border-style:solid;
+            border-radius: 0px;
         }
 
         .caption {
-            color: rgb(231, 81, 81);
-            margin-bottom: 70px
+            color: rgb(255, 255, 255);
+            margin-bottom: 70px;
+            font-size: 30px;
         }
 
         .pic-container {
@@ -49,6 +64,8 @@
             flex-direction: column;
             align-items: center;
         }
+
+        
     </style>
 
 </head>
@@ -59,44 +76,48 @@
 
     <h1 class='brand-font' id="b">CATSTAGRAM</h1>
     <h5 class="brand-font" id="a">SHARING THE WORLDS'S CATS</h5>
+    <div id="name"></div>
+    <div id="name_last"></div>
+    <div id="followers"></div>
+    <img id="profile_pic">
+    
     <!-- PICTURE CONTAINER  -->
     <div class=" pic-container">
         <!--Cat Photo 1-->
-        <img src=https://i.ytimg.com/vi/0xqkksHov58/maxresdefault.jpg>
-        <div id="likeCount1"></div>
-
-        <button id="likeBtn1">Like</button>
+        <img id='images' src=https://i.ytimg.com/vi/0xqkksHov58/maxresdefault.jpg>
+        <div id="likeCount0"></div>
+        <button id="likeBtn0" onClick="likePhoto(0)">Like</button>
         <p class="caption">We do be floating though!!!</p>
 
         <!--Cat Photo 2-->
-        <img src=https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg>
-        <div id="likeCount2"></div>
-        <button id="likeBtn2">Like</button>
+        <img id='images' src=https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg>
+        <div id="likeCount1"></div>
+        <button id="likeBtn1" onClick="likePhoto(1)">Like</button>
         <p class='caption'>When you find the perfect spot!</p>
 
         <!--Cat Photo 3-->
-        <img src=https://static.toiimg.com/thumb/75153263/luxury-cat-hotel.jpg?width=1200&height=900>
-        <div id="likeCount3"></div>
-        <button id="likeBtn3">Like</button>
+        <img id='images' src=https://static.toiimg.com/thumb/75153263/luxury-cat-hotel.jpg?width=1200&height=900>
+        <div id="likeCount2"></div>
+        <button id="likeBtn2" onClick="likePhoto(2)">Like</button>
         <p class="caption">Struggling for my life!!</p>
 
         <!--Cat Photo 4-->
-        <img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO1RHykrvNmg-pf8_4b78axrXS64P0Ju-OlA&usqp=CAU>
-        <div id="likeCount4"></div>
-        <button id="likeBtn4">Like</button>
-        <p class="caption">When mom calls you a smart business girl!!</p>
+        <img id='images' src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO1RHykrvNmg-pf8_4b78axrXS64P0Ju-OlA&usqp=CAU>
+        <div id="likeCount3"></div>
+        <button id="likeBtn3" onClick="likePhoto(3)">Like</button>
+        <p class="caption">When mom calls you a smart business man!!</p>
 
         <!--Cat Photo 5-->
-        <img
+        <img id='images' 
             src=https://th-thumbnailer.cdn-si-edu.com/bZAar59Bdm95b057iESytYmmAjI=/1400x1050/filters:focal(594x274:595x275)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/95/db/95db799b-fddf-4fde-91f3-77024442b92d/egypt_kitty_social.jpg>
-        <div id="likeCount5"></div>
-        <button id="likeBtn5">Like</button>
+        <div id="likeCount4"></div>
+        <button id="likeBtn4" onClick="likePhoto(4)">Like</button>
         <p class="caption">We used to rule the world!!!</p>
 
         <!--Cat Photo 6-->
-        <img src=https://www.vetvoice.com.au/imagevault/publishedmedia/u0wmv1fi7a44383vyx5r/Sphynx_cats.jpg>
-        <div id="likeCount6"></div>
-        <button id="likeBtn6">Like</button>
+        <img id='images' src=https://www.vetvoice.com.au/imagevault/publishedmedia/u0wmv1fi7a44383vyx5r/Sphynx_cats.jpg>
+        <div id="likeCount5"></div>
+        <button id="likeBtn5" onClick="likePhoto(5)">Like</button>
         <p class="caption">Skin be silky smooth!!!</p>
     </div>
 </body>
