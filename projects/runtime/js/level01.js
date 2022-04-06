@@ -25,11 +25,11 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 350, "y": groundY- 125 },
                 { "type": "sawblade", "x": 400, "y": groundY- 125 },
                 { "type": "sawblade", "x": 450, "y": groundY- 125 },
-                { "type": "reward2", "x": 300, "y": groundY - 15 },
-                { "type": "reward", "x": 100, "y": groundY - 15 },
-                { "type": "reward", "x": 2500, "y": groundY - 15 },
-                { "type": "reward2", "x": 1000, "y": groundY - 15 },
-                { "type": "reward2", "x": 2000, "y": groundY - 15 },
+                { "type": "reward2", "x": 300, "y": groundY - 10 },
+                { "type": "reward", "x": 100, "y": groundY - 10 },
+                { "type": "reward", "x": 2500, "y": groundY - 10 },
+                { "type": "reward2", "x": 1000, "y": groundY - 10 },
+                { "type": "reward2", "x": 2000, "y": groundY - 10 },
 
 
                 { "type": "sawblade", "x": 500, "y": groundY- 125 },
@@ -60,7 +60,7 @@ var level01 = function (window) {
                 { "type": "enemy", "x": 1103, "y": groundY - 50 }, { "type": "enemy", "x": 1500, "y": groundY - 20 },
                 { "type": "enemy", "x": 686, "y": groundY - 70 },
                 { "type": "enemy", "x": 690, "y": groundY - 50 },
-                { "type": "reward2", "x": 721, "y": groundY - 15 },
+                { "type": "reward2", "x": 721, "y": groundY - 10 },
 
             ]
 
@@ -91,7 +91,7 @@ var level01 = function (window) {
 
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(false);
+        game.setDebugMode(true);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
@@ -164,6 +164,11 @@ var level01 = function (window) {
             reward.onPlayerCollision = function () {
                 game.changeIntegrity(10);
                 console.log('Halle was rewarded');
+                reward.fadeOut();
+            };
+
+            reward.onProjectileCollision = function () {
+            
                 reward.fadeOut();
             };
 
