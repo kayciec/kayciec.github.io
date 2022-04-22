@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Jellyfish Catcher</h1>
+    <!-- <div class="top-box"> -->
+    <div class="main-box">
+        <div class="clicker-box">
+            <img id="clicker-image" src="https://i.pinimg.com/236x/3d/43/b8/3d43b88bafc88de6c121bbec9b3b4d96.jpg">
+            <p id="jellyfish-amount"> Jellyfish: 0 friends</p>
+            <p id="jellyfishPerSecond"> Jellyfish per second: 0 friends</p>
+        </div>
+        <div class="autoclicker-box">
+
+            <div class="autoclicker" id="autoclicker1">
+                <img
+                    src="https://www.simpleimageresizer.com/_uploads/photos/23f23090/pngfind.com-spongebob-and-patrick-png-6359302_56x60.png">
+                <p>Bamboo Net</p>
+                <p id="bamboo-net-count">Owned: 0</p>
+                <p id="bamboo-net-cost">Cost: 15</p>
+                <button id="purchase-bamboo-net">BUY!</button>
+            </div>
+
+            <div class="autoclicker" id="autoclicker2">
+                <img src="https://www.simpleimageresizer.com/_uploads/photos/bb08ceca/IMG_6279__1_-removebg-preview_2_3_60x70.png"
+                    <p>Ol' Reliable Net</p>
+                <p id="reliable-net-count">Owned: 0</p>
+                <p id="reliable-net-cost">Cost: 100</p>
+                <button id="purchase-reliable-net">BUY!</button>
+            </div>
+
+            <div class="autoclicker" id="autoclicker3">
+                <img
+                    src="https://www.simpleimageresizer.com/_uploads/photos/bb08ceca/Colorful_Net_Yellow__Orange_NH_Icon_1_80x60.png">
+                <p>Fancy Coral Net</p>
+                <p id="coral-net-count">Owned: 0</p>
+                <p id="coral-net-cost">Cost: 1100</p>
+                <button id="purchase-coral-net">BUY!</button>
+            </div>
+
+            <div class="autoclicker" id="autoclicker4">
+                <img
+                    src="https://www.simpleimageresizer.com/_uploads/photos/bb08ceca/Star_Net_Yellow_NH_Icon_1_80x60.png">
+                <p>Deluxe Jelly Slayer Pro</p>
+                <p id="deluxe-net-count">Owned: 0</p>
+                <p id="deluxe-net-cost">Cost: 12000</p>
+                <button id="purchase-deluxe-net">BUY!</button>
+            </div>
+
+        </div>
+
+        <div class="upgrade-box">
+            <img
+                src="https://www.simpleimageresizer.com/_uploads/photos/23f23090/PinClipart.com_sponge-bob-clipart_1614183_2_215x400.png">
+
+        </div>
+    </div>
+    <!-- <div class="credits">
+
+            </div> -->
+    <!-- </div> -->
+    <script>
+        $("#clicker-image").on("click", catchJellyfish);
+
+        // Variables
+        var jellyfish = 0;
+        var jellyfishPerSecond = 0;
+
+        // Nets
+        var bambooNet = {
+            jps: 0.1,
+            numberOwned: 0,
+            basePrice: 15,
+        };
+        var reliableNet = {
+            jps: 1,
+            numberOwned: 0,
+            basePrice: 100,
+        };
+        var coralNet = {
+            jps: 8,
+            numberOwned: 0,
+            basePrice: 1100,
+        };
+        var deluxeNet = {
+            jps: 47, // each net helps us catch one butterfly per second
+            numberOwned: 0, // we don't have any nets at the beginning of the game
+            basePrice: 12000, // the first one costs 50
+        };
+
+
+        // Core Functionality
+        setInterval(addAutoJellyfish, 1000);
+
+        // Event/Click Listeners
+
+        $("#purchase-bamboo-net").on("click", purchaseBambooNet);
+        $("#purchase-reliable-net").on('click', purchaseReliableNet);
+        $("#purchase-coral-net").on('click', purchaseCoralNet);
+        $("#purchase-deluxe-net").on('click', purchaseDeluxeNet);
+
+        // Functions
+        function catchJellyfish() {
+            jellyfish++
+            $("#jellyfish-amount").text("Jellyfish: " + jellyfish + " friends");
+
+        }
+
+        function purchaseBambooNet() {
+
+            var bambooCost = Math.ceil(bambooNet.basePrice * Math.pow(1.15, bambooNet.numberOwned));
+            console.log(jellyfishPerSecond, bambooNet.jps)
+            if (jellyfish >= bambooCost) {
+                // write a line of code that decreases the jellyfish by the cost
+                jellyfish -= bambooCost
+                // write a second line of code that increases the ramPerSecond variable by microSD's rps value
+                jellyfishPerSecond += bambooNet.jps
+                console.log(jellyfishPerSecond)
+                // write another line that increases the microSD variable's numberOwned property by one
+                bambooNet['numberOwned']++
+                // Add code that updates the text of the div that you're working on. Here's an example of updating the number owned text:
+                $("#bamboo-net-count").text("Owned: " + bambooNet.numberOwned); // Update the text based on the updated numberOwned property
+                $("#bamboo-net-cost").text("Cost: " + bambooCost);
+                $("#jellyfishPerSecond").text("Jellyfish per second: " + Math.ceil(jellyfishPerSecond) + " friends");
+                // Now we'll calculate the cost of the next microsd
+                var bambooNewCost = Math.ceil(bambooNet.basePrice * Math.pow(1.1, bambooNet.numberOwned));
+                $('#bamboo-net-cost').text("Cost: " + bambooNewCost);
+            }
+        }
+
+        function purchaseReliableNet() {
+            var reliableCost = Math.ceil(reliableNet.basePrice * Math.pow(1.15, reliableNet.numberOwned));
+            console.log(jellyfishPerSecond, reliableNet.jps)
+            if (jellyfish >= reliableCost) {
+                jellyfish -= reliableCost
+                jellyfishPerSecond += reliableNet.jps
+                console.log(jellyfishPerSecond)
+                reliableNet['numberOwned']++
+
+                // Add code that updates the text of the div that you're working on. Here's an example of updating the number owned text:
+                $("#reliable-net-count").text("Owned: " + reliableNet.numberOwned); // Update the text based on the updated numberOwned property
+                $("#reliable-net-cost").text("Cost: " + reliableCost);
+                $("#jellyfishPerSecond").text("Jellyfish per second: " + Math.ceil(jellyfishPerSecond) + " friends");
+                // Now we'll calculate the cost of the next microsd
+                var reliableNewCost = Math.ceil(reliableCost.basePrice * Math.pow(1.1, reliableNet.numberOwned));
+                $('#reliableNet-cost').text("Cost: " + reliableNewCost);
+            }
+        }
+        function purchaseCoralNet() {
+            var coralCost = Math.ceil(coralNet.basePrice * Math.pow(1.115, coralNet.numberOwned));
+            if (jellyfish >= coralCost) {
+                console.log(jellyfishPerSecond, coralNet.jps)
+                // write a line of code that decreases the ram by the cost
+                jellyfish -= coralCost
+                // write a second line of code that increases the ramPerSecond variable by microSD's rps value
+                jellyfishPerSecond += coralNet.jps
+                console.log(jellyfishPerSecond)
+                // write another line that increases the microSD variable's numberOwned property by one
+                coralNet['numberOwned']++
+                // Add code that updates the text of the div that you're working on. Here's an example of updating the number owned text:
+                $("#coral-net-count").text("Owned: " + coralNet.numberOwned); // Update the text based on the updated numberOwned property
+                $("#coral-net-cost").text("Cost: " + coralCost);
+                $("#jellyfishPerSecond").text("Jellyfish per second: " + Math.ceil(jellyfishPerSecond) + " friends");
+                // Now we'll calculate the cost of the next microsd
+                var newCoralCost = Math.ceil(coralNet.basePrice * Math.pow(1.115, coralNet.numberOwned));
+                $('#coral-net-cost').text("Cost: " + newCoralCost);
+            }
+        }
+        function purchaseDeluxeNet() {
+            var deluxeCost = Math.ceil(deluxeNet.basePrice * Math.pow(1.15, deluxeNet.numberOwned));
+ 
+            if (jellyfish >= deluxeCost) {
+                console.log(jellyfishPerSecond,deluxeNet.jps)
+                // write a line of code that decreases the ram by the cost
+                jellyfish-=deluxeCost
+                // write a second line of code that increases the ramPerSecond variable by microSD's rps value
+                jellyfishPerSecond+=deluxeNet.jps
+                console.log(jellyfishPerSecond)
+                // write another line that increases the microSD variable's numberOwned property by one
+                deluxeNet['numberOwned']++
+                // Add code that updates the text of the div that you're working on. Here's an example of updating the number owned text:
+                $("#deluxe-net-count").text("Owned: " + deluxeNet.numberOwned); // Update the text based on the updated numberOwned property
+                $("#deluxe-net-cost").text("Cost: " + deluxeCost);
+                $("#jellyfishPerSecond").text("Jellyfish per second: " + Math.ceil(jellyfishPerSecond) + " friends");
+
+                // Now we'll calculate the cost of the next microsd
+                var newDeluxeCost = Math.ceil(deluxeNet.basePrice * Math.pow(1.1, deluxeNet.numberOwned));
+                $('#deluxe-net-cost').text("Cost: " + newDeluxeCost);
+            }
+        }
+
+        function addAutoJellyfish() {
+            //     Write a line of code that increases the ram variable by the value stored in the ramPerSecond variable
+            jellyfish += jellyfishPerSecond
+            //     If you chose a number different than 1000 above for your setInterval timer, you'll have to divide the ramPerSecond value before adding it to the ram.
+            //     For example, if you chose 250, you'll update the ram variable by adding one fourth of the ramPerSecond value.
+            //  update the text that displays the ram available
+
+            $("#jellyfish-amount").text("Jellyfish: " + Math.floor(jellyfish) + " friends");
+        }
+        /* All code above here */
+    </script>
+</body>
+
+</html>
