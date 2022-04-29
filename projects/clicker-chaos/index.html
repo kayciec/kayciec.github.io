@@ -81,7 +81,7 @@
         $("#clicker-image").on("click", catchJellyfish);
 
         // Variables
-        var jellyfish = 5000;
+        var jellyfish = 0;
         var jellyfishPerSecond = 0;
         var click = 1
         // Nets
@@ -225,6 +225,7 @@
             if (jellyfish >= AmbidextrousCost) {
                 jellyfish -= AmbidextrousCost
                 click++
+                alert('ambidextrous upgrade purchased!')
             }
         }
 
