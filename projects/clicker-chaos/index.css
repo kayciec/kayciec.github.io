@@ -34,6 +34,11 @@ as a vertical list */
     flex-direction: column;
 }
 
+#thumb {
+    padding-left: 73px;
+    padding-top: 10px;
+    border-color: rgb(21, 7, 105);
+}
 .autoclicker-box > div {
     background-color: rgba(185, 33, 196, 0.435);
     margin: 10px;
@@ -83,6 +88,31 @@ div {
     border: 1px solid black;
 
 }
+
+.upgrade {
+    font-size: smaller;
+    background-color: rgba(185, 33, 196, 0.435);
+    margin-bottom: 10px ;
+}
+
+#purchase-ambidextrous {
+    padding: 5px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.upgrade-info {
+    padding-left:1px;
+    padding-right:1px;
+    padding-bottom:0.5px;
+    padding-top:1px;
+    width: 40px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size:x-large;
+    
+}
+
 /* .credits {
     background-color: lightskyblue;
 } */

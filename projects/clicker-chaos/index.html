@@ -18,25 +18,21 @@
         <div class="autoclicker-box">
 
             <div class="autoclicker" id="autoclicker1">
-                <img
-                    src="https://www.simpleimageresizer.com/_uploads/photos/23f23090/pngfind.com-spongebob-and-patrick-png-6359302_56x60.png">
-                <p>Bamboo Net</p>
+                <img src="images/jelly.png" <p>Bamboo Net</p>
                 <p id="bamboo-net-count">Owned: 0</p>
                 <p id="bamboo-net-cost">Cost: 15</p>
                 <button id="purchase-bamboo-net">BUY!</button>
             </div>
 
             <div class="autoclicker" id="autoclicker2">
-                <img src="https://www.simpleimageresizer.com/_uploads/photos/bb08ceca/IMG_6279__1_-removebg-preview_2_3_60x70.png"
-                    <p>Ol' Reliable Net</p>
+                <img src="images/reliable.png" <p>Ol' Reliable Net</p>
                 <p id="reliable-net-count">Owned: 0</p>
                 <p id="reliable-net-cost">Cost: 100</p>
                 <button id="purchase-reliable-net">BUY!</button>
             </div>
 
             <div class="autoclicker" id="autoclicker3">
-                <img
-                    src="https://www.simpleimageresizer.com/_uploads/photos/bb08ceca/Colorful_Net_Yellow__Orange_NH_Icon_1_80x60.png">
+                <img src="images/coral.png">
                 <p>Fancy Coral Net</p>
                 <p id="coral-net-count">Owned: 0</p>
                 <p id="coral-net-cost">Cost: 1100</p>
@@ -44,8 +40,7 @@
             </div>
 
             <div class="autoclicker" id="autoclicker4">
-                <img
-                    src="https://www.simpleimageresizer.com/_uploads/photos/bb08ceca/Star_Net_Yellow_NH_Icon_1_80x60.png">
+                <img src="images/deluxe.png">
                 <p>Deluxe Jelly Slayer Pro</p>
                 <p id="deluxe-net-count">Owned: 0</p>
                 <p id="deluxe-net-cost">Cost: 12000</p>
@@ -55,8 +50,26 @@
         </div>
 
         <div class="upgrade-box">
-            <img
-                src="https://www.simpleimageresizer.com/_uploads/photos/23f23090/PinClipart.com_sponge-bob-clipart_1614183_2_215x400.png">
+
+            <!-- Ambidextrous clicking does double the clicking -->
+            <div class="upgrade" id="upgrade1">
+                <img id='thumb' src="images/thumbs.png">
+                <button id='ambidextrous-info' class="upgrade-info">🛈</button>
+                <button id="purchase-ambidextrous">BUY!</button>
+            </div>
+            <!--  -->
+            <div class="upgrade" id="upgrade2">
+                <img src="">
+                <button id='ambidextrous-info' class="upgrade-info">🛈</button>
+                <button id="purchase-ambidextrous">BUY!</button>
+            </div>
+
+            <!--  -->
+            <div class="upgrade" id="upgrade3">
+                <img src="">
+                <button id='ambidextrous-info' class="upgrade-info">🛈</button>
+                <button id="purchase-ambidextrous">BUY!</button>
+            </div>
 
         </div>
     </div>
@@ -68,9 +81,9 @@
         $("#clicker-image").on("click", catchJellyfish);
 
         // Variables
-        var jellyfish = 0;
+        var jellyfish = 5000;
         var jellyfishPerSecond = 0;
-
+        var click = 1
         // Nets
         var bambooNet = {
             jps: 0.1,
@@ -93,6 +106,8 @@
             basePrice: 12000, // the first one costs 50
         };
 
+        var AmbidextrousCost = 500
+
 
         // Core Functionality
         setInterval(addAutoJellyfish, 1000);
@@ -103,10 +118,11 @@
         $("#purchase-reliable-net").on('click', purchaseReliableNet);
         $("#purchase-coral-net").on('click', purchaseCoralNet);
         $("#purchase-deluxe-net").on('click', purchaseDeluxeNet);
-
+        $("#purchase-ambidextrous").on('click', purchaseAmbidextrous)
+        $("#ambidextrous-info").on('click', AmbidextrousAlert)
         // Functions
         function catchJellyfish() {
-            jellyfish++
+            jellyfish += click
             $("#jellyfish-amount").text("Jellyfish: " + jellyfish + " friends");
 
         }
@@ -173,13 +189,13 @@
         }
         function purchaseDeluxeNet() {
             var deluxeCost = Math.ceil(deluxeNet.basePrice * Math.pow(1.15, deluxeNet.numberOwned));
- 
+
             if (jellyfish >= deluxeCost) {
-                console.log(jellyfishPerSecond,deluxeNet.jps)
+                console.log(jellyfishPerSecond, deluxeNet.jps)
                 // write a line of code that decreases the ram by the cost
-                jellyfish-=deluxeCost
+                jellyfish -= deluxeCost
                 // write a second line of code that increases the ramPerSecond variable by microSD's rps value
-                jellyfishPerSecond+=deluxeNet.jps
+                jellyfishPerSecond += deluxeNet.jps
                 console.log(jellyfishPerSecond)
                 // write another line that increases the microSD variable's numberOwned property by one
                 deluxeNet['numberOwned']++
@@ -202,6 +218,18 @@
             //  update the text that displays the ram available
 
             $("#jellyfish-amount").text("Jellyfish: " + Math.floor(jellyfish) + " friends");
+        }
+
+        function purchaseAmbidextrous() {
+            console.log(AmbidextrousCost)
+            if (jellyfish >= AmbidextrousCost) {
+                jellyfish -= AmbidextrousCost
+                click++
+            }
+        }
+
+        function AmbidextrousAlert() {
+            alert('makes any jellyfish caught clicking catch twice the jellyfish... costs 500 jellyfish')
         }
         /* All code above here */
     </script>
