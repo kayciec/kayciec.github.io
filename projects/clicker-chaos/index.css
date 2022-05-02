@@ -14,11 +14,17 @@ button {
     background-color:rgb(67, 186, 186);
     border: 2px rgb(75, 16, 214) ridge;
     color: rgb(237, 186, 249);
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+
+  .button {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
   }
 
 h1 {
@@ -37,7 +43,6 @@ as a vertical list */
 #thumb {
     padding-left: 73px;
     padding-top: 10px;
-    border-color: rgb(21, 7, 105);
 }
 .autoclicker-box > div {
     background-color: rgba(185, 33, 196, 0.435);
@@ -95,21 +100,18 @@ div {
     margin-bottom: 10px ;
 }
 
-#purchase-ambidextrous {
+.purchase-upgrade {
     padding: 5px;
-    margin-left: 30px;
+    margin-left: 100px;
     margin-bottom: 10px;
+    
 }
 
 .upgrade-info {
-    padding-left:1px;
-    padding-right:1px;
-    padding-bottom:0.5px;
-    padding-top:1px;
-    width: 40px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-    font-size:x-large;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    font-size:auto;
     
 }
 

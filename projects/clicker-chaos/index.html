@@ -21,14 +21,14 @@
                 <img src="images/jelly.png" <p>Bamboo Net</p>
                 <p id="bamboo-net-count">Owned: 0</p>
                 <p id="bamboo-net-cost">Cost: 15</p>
-                <button id="purchase-bamboo-net">BUY!</button>
+                <button class='button' id="purchase-bamboo-net">BUY!</button>
             </div>
 
             <div class="autoclicker" id="autoclicker2">
                 <img src="images/reliable.png" <p>Ol' Reliable Net</p>
                 <p id="reliable-net-count">Owned: 0</p>
                 <p id="reliable-net-cost">Cost: 100</p>
-                <button id="purchase-reliable-net">BUY!</button>
+                <button class='button' id="purchase-reliable-net">BUY!</button>
             </div>
 
             <div class="autoclicker" id="autoclicker3">
@@ -36,7 +36,7 @@
                 <p>Fancy Coral Net</p>
                 <p id="coral-net-count">Owned: 0</p>
                 <p id="coral-net-cost">Cost: 1100</p>
-                <button id="purchase-coral-net">BUY!</button>
+                <button class='button' id="purchase-coral-net">BUY!</button>
             </div>
 
             <div class="autoclicker" id="autoclicker4">
@@ -44,7 +44,7 @@
                 <p>Deluxe Jelly Slayer Pro</p>
                 <p id="deluxe-net-count">Owned: 0</p>
                 <p id="deluxe-net-cost">Cost: 12000</p>
-                <button id="purchase-deluxe-net">BUY!</button>
+                <button class='button' id="purchase-deluxe-net">BUY!</button>
             </div>
 
         </div>
@@ -55,20 +55,21 @@
             <div class="upgrade" id="upgrade1">
                 <img id='thumb' src="images/thumbs.png">
                 <button id='ambidextrous-info' class="upgrade-info">🛈</button>
-                <button id="purchase-ambidextrous">BUY!</button>
-            </div>
-            <!--  -->
-            <div class="upgrade" id="upgrade2">
-                <img src="">
-                <button id='ambidextrous-info' class="upgrade-info">🛈</button>
-                <button id="purchase-ambidextrous">BUY!</button>
+                <button id='purchase-ambidextrous' class="purchase-upgrade">BUY!</button>
             </div>
 
-            <!--  -->
+            <!-- Jellyfish Season makes your jellyfish per second multiply by three-->
             <div class="upgrade" id="upgrade3">
-                <img src="">
-                <button id='ambidextrous-info' class="upgrade-info">🛈</button>
-                <button id="purchase-ambidextrous">BUY!</button>
+                <img id='thumb' src="images/season.png">
+                <button id='season-info' class="upgrade-info">🛈</button>
+                <button id='purchase-season' class="purchase-upgrade">BUY!</button>
+            </div>
+
+            <!-- Refurbished Nets makes all nets double the jps -->
+            <div class="upgrade" id="upgrade2">
+                <img id='thumb' src="images/netupg.png">
+                <button id='refurbished-info' class='upgrade-info'>🛈</button>
+                <button id='purchase-refurbished' class="purchase-upgrade">BUY!</button>
             </div>
 
         </div>
@@ -96,18 +97,19 @@
             basePrice: 100,
         };
         var coralNet = {
-            jps: 8,
+            jps: 10,
             numberOwned: 0,
             basePrice: 1100,
         };
         var deluxeNet = {
-            jps: 47, // each net helps us catch one butterfly per second
+            jps: 50, // each net helps us catch one butterfly per second
             numberOwned: 0, // we don't have any nets at the beginning of the game
             basePrice: 12000, // the first one costs 50
         };
 
-        var AmbidextrousCost = 500
-
+        var ambidextrousCost = 200
+        var refurbishedCost = 2000
+        var seasonCost = 800
 
         // Core Functionality
         setInterval(addAutoJellyfish, 1000);
@@ -119,7 +121,11 @@
         $("#purchase-coral-net").on('click', purchaseCoralNet);
         $("#purchase-deluxe-net").on('click', purchaseDeluxeNet);
         $("#purchase-ambidextrous").on('click', purchaseAmbidextrous)
-        $("#ambidextrous-info").on('click', AmbidextrousAlert)
+        $("#ambidextrous-info").on('click', ambidextrousAlert)
+        $("#purchase-refurbished").on('click', purchaseRefurbished)
+        $("#refurbished-info").on('click', refurbishedAlert)
+        $("#purchase-season").on('click', purchaseSeason)
+        $("#season-info").on('click', seasonAlert)
         // Functions
         function catchJellyfish() {
             jellyfish += click
@@ -221,17 +227,47 @@
         }
 
         function purchaseAmbidextrous() {
-            console.log(AmbidextrousCost)
-            if (jellyfish >= AmbidextrousCost) {
-                jellyfish -= AmbidextrousCost
-                click++
+            console.log(ambidextrousCost)
+            if (jellyfish >= ambidextrousCost) {
+                jellyfish -= ambidextrousCost
+                click *= 2
                 alert('ambidextrous upgrade purchased!')
             }
         }
 
-        function AmbidextrousAlert() {
-            alert('makes any jellyfish caught clicking catch twice the jellyfish... costs 500 jellyfish')
+        function ambidextrousAlert() {
+            alert('AMBIDEXTROUS...makes any jellyfish caught clicking catch twice the jellyfish... costs 200 jellyfish')
         }
+
+        function purchaseRefurbished() {
+            console.log(refurbishedCost)
+            if (jellyfish >= refurbishedCost) {
+                jellyfish -= refurbishedCost
+                alert('refurbished nets purchased!')
+                bambooNet.jps *= 2
+                coralNet.jps *= 2
+                reliableNet.jps *= 2
+                deluxeNet.jps *= 2
+            }
+        }
+
+        function refurbishedAlert() {
+            alert('REFURBISHED NETS... all nets bought after upgrade jellyfish per second double... costs 1800 jellyfish')
+        }
+        function purchaseSeason() {
+            console.log(seasonCost)
+            if (jellyfish >= seasonCost) {
+                jellyfish -= seasonCost
+                alert('jellyfish season purchased!')
+                jellyfishPerSecond*= 3
+                $("#jellyfishPerSecond").text("Jellyfish per second: " + Math.ceil(jellyfishPerSecond) + " friends");
+            }
+        }
+
+        function seasonAlert() {
+            alert('JELLYFISH SEASON... jellyfish per second multiplies by three... costs 800')
+        }
+
         /* All code above here */
     </script>
 </body>
