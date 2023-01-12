@@ -65,28 +65,13 @@ var level01 = function (window) {
             ]
 
         };
-        for (var i = 0; i < levelData.gameItems.length; i++) {
-            if (levelData.gameItems[i].type === "enemy") {
-                createEnemy(levelData.gameItems[i].x, levelData.gameItems[i].y)
-            }
-
-            else if (levelData.gameItems[i].type === "reward") {
+        for (var i = 0; i < levelData.gameItems.length; i+=1) {
+                createEnemy(levelData.gameItems[i].i, levelData.gameItems[i].y)
                 createReward(levelData.gameItems[i].x, levelData.gameItems[i].y)
-            }
-
-            else if (levelData.gameItems[i].type === "reward2") {
                 createReward2(levelData.gameItems[i].x, levelData.gameItems[i].y)
-            }
-
-            else if (levelData.gameItems[i].type === "sawblade") {
                 createSawBlade(levelData.gameItems[i].x, levelData.gameItems[i].y)
-            }
-
-            else if (levelData.gameItems[i].type === "custom") {
                 createMyObstacle(levelData.gameItems[i].x, levelData.gameItems[i].y)
-            }
-
-
+   
         }
 
         window.levelData = levelData;
