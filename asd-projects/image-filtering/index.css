@@ -1,6 +1,6 @@
 .square {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   position: absolute;
 }
 
@@ -10,7 +10,7 @@ body > div {
 
 #button-box {
   position: relative;
-  top: 380px;
+  top: 540px;
 }
 
 button {

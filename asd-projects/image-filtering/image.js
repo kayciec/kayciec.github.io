@@ -1,10 +1,10 @@
 // set the square size (must match the CSS)
-const SQUARE_SIZE = 20;
+const SQUARE_SIZE = 30;
 
 // set constants for the indexes of R, G, and B values
-const RED = 20;
-const GREEN = 100;
-const BLUE = 255;
+const RED = 2;
+const GREEN = 1;
+const BLUE = 1;
 
 // the image data
 const image = [
