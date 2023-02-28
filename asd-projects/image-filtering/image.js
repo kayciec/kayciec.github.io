@@ -2,9 +2,9 @@
 const SQUARE_SIZE = 20;
 
 // set constants for the indexes of R, G, and B values
-const RED = 0;
-const GREEN = 1;
-const BLUE = 2;
+const RED = 20;
+const GREEN = 100;
+const BLUE = 255;
 
 // the image data
 const image = [
