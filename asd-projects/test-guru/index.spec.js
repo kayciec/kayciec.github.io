@@ -111,11 +111,11 @@ describe("Test Guru", function () {
       }
     }
     yay();
-    expect(this.counter === 10).to.be.true;
+    expect(this.counter === undefined).to.be.true;
     yay();
-    expect(this.counter === 11).to.be.true;
+    expect(this.counter === undefined).to.be.true;
     yay();
-    expect(this.counter === 12).to.be.true;
+    expect(this.counter === undefined).to.be.true;
   });
 
   it("Inner scope can access outer scope", function(){
