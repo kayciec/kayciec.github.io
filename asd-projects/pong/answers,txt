@@ -2,21 +2,29 @@ User Story / Gameplay
 
 Describe the gameplay
     a game where two players control paddles that are positioned on either side of the screen. Up until the ball passes one player's paddle, a ball is struck back and forth between the top and bottom walls and the two paddles. The point is forfeited by the player who misses the ball. When one player scores 11 points, the game is over.
-What are the conditions when the game begins?
+
+    What are the conditions when the game begins?
     Both players have zero points, ball is set to center of the screen, speed is at its lowest points
+
 Does the game have an end? If so, what are the conditions for when it ends?
     Yes, when one of the players points reaches 11
+
 What ifs will there be?
     If paddle goes out of border, stop it. If ball hits paddle, speed increases. If ball is greater than screen size, move it to center. If ball is out of border, points increases. If ball hits a ceiling or floor, move in opposite direction. If points reaches 11, game over
+
 Visual Game Components:
 What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
 ball, paddle, the borders
+
 Which will be static? (the board)
 the borders
+
 Which will be animated? (the box)
 ball, paddles
+
 What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
 position of paddle and ball, speedx/y, points to win the game/ current, border size, timer
+
 Events / Logic
 What events will occur in this game? (timer events, keyboard events, clicking events?)
 
@@ -24,8 +32,10 @@ when we push up arrow, paddle for player one oes up
 when we push down arrow, paddle for player one goes down
 when we push w key, second paddle  for player two goes up
 when we push s key, second paddle  for player two goes down
+
 How do those events affect the data of the program?
     adds more code to the program
+    
 For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
 when the ball hits the paddle, the speed is increased, the direction changes
 when ball goes out of borders, position resets to zero, speed is reset, point total goes up by one and is displayed
